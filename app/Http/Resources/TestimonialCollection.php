@@ -17,8 +17,6 @@ class TestimonialCollection extends ResourceCollection
      */
     public function toArray(Request $request): array
     {
-        return [
-            $this->collection
-        ];
+        return    $this->collection->toArray();
     }
 }

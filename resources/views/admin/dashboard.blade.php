@@ -106,7 +106,7 @@
                             fetchTestimonials() {
                                 fetch('{{route('admin.testimonials.fetch')}}')
                                     .then(res => res.json())
-                                    .then(data => this.testimonials = data[0]);
+                                    .then(data => this.testimonials = data);
                             },
                             handleFileUpload(e) {
                                 this.form.image = e.target.files[0];

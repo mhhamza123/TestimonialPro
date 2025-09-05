@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $testimonials = new TestimonialCollection(Testimonial::where('status', TestimonialStatus::ACTIVE->value)->get());
-        dd($testimonials);
+        $testimonials = (new TestimonialCollection(Testimonial::where('status', TestimonialStatus::ACTIVE->value)->get()))->toJson();
         return view('welcome', compact('testimonials'));
     }
 }

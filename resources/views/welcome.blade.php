@@ -15,7 +15,8 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
         <script>
-            const testimonials_data = "{{ json_encode($testimonials ?? []) }}";
+            const testimonials_data = {!! $testimonials ?? [] !!};
+            console.log(testimonials_data);
             function testimonialSlider() {
                 return {
                     current: 0,
@@ -45,27 +46,27 @@
         <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
-                    @auth
+                    @auth('admin')
                         <a
-                            href="{{ url('/dashboard') }}"
+                            href="{{ url('admin/dashboard') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
                         </a>
                     @else
                         <a
-                            href="{{ route('login') }}"
+                            href="{{ route('admin.login') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
                         >
                             Log in
                         </a>
 
                         @if (Route::has('register'))
-                            <a
+                            {{-- <a
                                 href="{{ route('register') }}"
                                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
                                 Register
-                            </a>
+                            </a> --}}
                         @endif
                     @endauth
                 </nav>
@@ -84,8 +85,8 @@
                             class="text-center space-y-6 px-5"
                             style="display: none;"
                         >
-                            <img :src="testimonial.photo" alt="" class="mx-auto w-24 h-24 rounded-full object-cover shadow-md" />
-                            <p class="text-white text-lg italic">“<span x-text="testimonial.text"></span>”</p>
+                            <img :src="testimonial.image" alt="" class="mx-auto w-24 h-24 rounded-full object-cover shadow-md" />
+                            <p class="text-white text-lg italic">“<span x-text="testimonial.message"></span>”</p>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-300" x-text="testimonial.name"></h3>
                                 <p class="text-sm text-gray-600 font-medium" x-text="testimonial.role"></p>
