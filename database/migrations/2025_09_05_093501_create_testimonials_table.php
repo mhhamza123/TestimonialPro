@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name', 100);
-            $table->string('last_name', 100);
+            $table->string('name', 200);
             $table->string('role', 100)->nullable();
             $table->text('message');
             $table->boolean('status')->default(0);
