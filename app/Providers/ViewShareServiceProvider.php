@@ -20,6 +20,5 @@ class ViewShareServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
     }
 }
