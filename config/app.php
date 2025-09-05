@@ -123,4 +123,13 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+     /**
+     * app admin
+     */
+    'admin' => [
+        'name' => env('DEFAULT_APP_ADMIN_NAME', 'ADMIN'),
+        'email' => env('DEFAULT_APP_ADMIN_EMAIL', 'admin@admin.com'),
+        'password' => env('DEFAULT_APP_ADMIN_PASSWORD', '12345678'),
+    ]
+
 ];
