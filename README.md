@@ -2,7 +2,6 @@
 
 <p align="center">
   ### Testimonial Demo
-  <video src="https://github.com/mhhamza123/TestimonialPro/raw/refs/heads/master/Testimonial%20Demo.mp4" width="600" controls></video>
 </p>
 
 ## About Laravel
